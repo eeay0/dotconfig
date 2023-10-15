@@ -1,0 +1,49 @@
+Plugin list:
+--- Plugin Manager ---
+lazy.nvim
+--- LSP ---
+lspconfig
+lspsaga
+lsp_signauture.nvim
+inc-rename.nvim
+--- Diagnostics ---
+toruble.nvim
+--- Completion ---
+nvim-cmp
+--- Syntax ---
+nvim-treesitter
+nvim-surround
+--- Register ---
+nvim-neoclip
+--- Marks ---
+harpoon
+--- Fuzzy Finder ---
+telescope.nvim
+--- Colorscheme ---
+sonokai
+oxocarbon
+kanagawa
+--- Bars and Lines ---
+lualine
+bufferline
+--- Utility ---
+noice.nvim
+dressing.nvim
+--- Debugging ---
+nvim-dap
+nvim-dap-ui
+--- Nvim Lua ---
+neodev.nvim
+--- Comment ---
+comment.nvim
+--- Formatting ---
+formatter.nvim
+--- Indent ---
+indent-blankline.nvim
+--- Session ---
+auto-session
+--- Split ---
+focus.nvim
+
+
+look at lunar, lazy and chadnvim configurations.
