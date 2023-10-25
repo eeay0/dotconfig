@@ -1,6 +1,5 @@
 exec --no-startup-id xrandr --output DP-1 --mode 1920x1080 --pos 0x0 --output HDMI-1 --primary --mode 1920x1080 --pos 1920x0 --output eDP-1 --mode 1920x1080 --pos 3840x0
-exec --no-startup-id setxkbmap -option caps:escape
-# exec --no-startup-id picom
+exec --no-startup-id setxkbmap -option "caps:escape"
 set $mod Mod4
 font pango:monospace 8
 exec --no-startup-id dex --autostart --environment i3
