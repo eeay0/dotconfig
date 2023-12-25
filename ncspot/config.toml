@@ -1,0 +1,24 @@
+user_nerdfont = true
+flip_status_indicators = true
+volnorm = true
+bitrate = 320
+notify = true
+shuffle = true
+
+[theme]
+background = "#000000"
+primary = "#FFFFFF"
+secondary = "#838181"
+title = "#00FF5B"
+playing = "#00FF5B"
+playing_selected = "#00FF5B"
+playing_bg = "#181818"
+highlight = "#00FF5A"
+highlight_bg = "#393939"
+error = "#F8F8F8"
+error_bg = "#A50000"
+statusbar = "#000000"
+statusbar_progress = "#00AC4C"
+statusbar_bg = "#00FF71"
+cmdline = "#FFFFFF"
+cmdline_bg = "#000000"

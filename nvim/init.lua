@@ -1,1 +1,3 @@
-print(hello)
+require("options")
+require("lazyvim")
+require("keymaps")
