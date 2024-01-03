@@ -8,9 +8,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = {}
-
-plugins = {
+local plugins = {
     {
         "neovim/nvim-lspconfig",
         lazy = true,
@@ -54,7 +52,7 @@ plugins = {
             "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline", "hrsh7th/cmp-nvim-lsp-signature-help",
             "saadparwaiz1/cmp_luasnip", "petertriho/cmp-git",
-            "onsails/lspkind.nvim"
+            "onsails/lspkind.nvim", "uga-rosa/cmp-dictionary"
         },
         config = function() require("plugins.completion") end
     }, {
@@ -152,10 +150,11 @@ plugins = {
             })
         end
     }, {
-        "williamboman/mason.nvim",
-        lazy = true,
-        event = "BufWinEnter",
-        config = function() require("plugins.mason") end
+        "nvim-neorg/neorg",
+        tag = "v7.0.0",
+        build = ":Neorg sync-parsers",
+        dependencies = {"nvim-lua/plenary.nvim"},
+        config = function() require("plugins.note") end
     }
 }
 require("lazy").setup(plugins)

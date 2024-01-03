@@ -12,7 +12,7 @@ require("formatter").setup({
         cpp = {require("formatter.filetypes.c").clangformat},
         sh = {require("formatter.filetypes.sh").shfmt},
         zsh = {require("formatter.filetypes.sh").shfmt},
-        markdonw = {require("formatter.filetypes.markdown").prettier},
+        markdown = {require("formatter.filetypes.markdown").prettierd},
         toml = {require("formatter.filetypes.toml").taplo},
         ["*"] = {require("formatter.filetypes.any").remove_trailing_whitespace}
     }
