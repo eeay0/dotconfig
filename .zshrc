@@ -8,8 +8,6 @@ fi
 
 
 
-
-
 # The following lines were added by compinstall
 
 zstyle ':completion:*' auto-description 'Description: %d'
@@ -69,15 +67,28 @@ zinit ice depth"1" # git clone depth
 zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-autosuggestions
 zinit light z-shell/F-Sy-H
+zinit light hlissner/zsh-autopair
 
+eval "$(op completion zsh)"; compdef _op op
 
 ### ALIAS
-alias ls="exa " 
+alias ls="exa "
 alias l="exa -lah --icons=always --smart-group"
 alias lt="exa --tree --icons"
 alias up="paru -Syyu"
 alias i="paru -S"
 alias r="paru -Rns"
-alias mirror="sudo reflector --latest 60 --sort rate --fastest 6 --save /etc/pacman.d/mirrorlist"
+alias s="paru -Ss"
+alias mirror="sudo reflector --latest 75 --sort rate --fastest 6 --save /etc/pacman.d/mirrorlist --verbose"
+alias fm="ranger"
+alias v="nvim"
+alias ezsh="nvim ~/.zshrc"
+alias zshs="source ~/.zshrc"
+alias c="clear"
+alias run="./run.sh"
+
+
+
+export EDITOR="nvim"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

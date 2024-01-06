@@ -52,7 +52,9 @@ local plugins = {
             "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline", "hrsh7th/cmp-nvim-lsp-signature-help",
             "saadparwaiz1/cmp_luasnip", "petertriho/cmp-git",
-            "onsails/lspkind.nvim", "uga-rosa/cmp-dictionary"
+            "onsails/lspkind.nvim", "uga-rosa/cmp-dictionary",
+            "octaltree/cmp-look", "f3fora/cmp-spell", "hrsh7th/cmp-emoji",
+            "chrisgrieser/cmp-nerdfont"
         },
         config = function() require("plugins.completion") end
     }, {
@@ -155,6 +157,22 @@ local plugins = {
         build = ":Neorg sync-parsers",
         dependencies = {"nvim-lua/plenary.nvim"},
         config = function() require("plugins.note") end
+    }, {
+        'jakewvincent/mkdnflow.nvim',
+        config = function()
+            require('mkdnflow').setup({
+                mappings = {MkdnEnter = {{'n', 'v', 'i'}, '<CR>'}}
+            })
+        end
+    }, {
+        "ellisonleao/glow.nvim",
+        config = function()
+            require('glow').setup({
+                width = 160,
+                height = 200,
+            })
+        end,
+        cmd = "Glow"
     }
 }
 require("lazy").setup(plugins)

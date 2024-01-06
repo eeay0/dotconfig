@@ -23,17 +23,20 @@ opt.pumblend = 10 -- Popup blend
 opt.pumheight = 10 -- Maximum number of entries in a popup
 opt.relativenumber = true -- Relative line numbers
 opt.scrolloff = 4 -- Lines of context
-opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
+opt.sessionoptions = {
+    "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp",
+    "folds"
+}
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 4 -- Size of an indent
-opt.shortmess:append({ W = true, I = true, c = true, C = true })
+opt.shortmess:append({W = true, I = true, c = true, C = true})
 opt.showmode = true -- Dont show mode since we have a statusline
 opt.sidescrolloff = 122 -- Columns of context
 opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.smartcase = true -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
 opt.smarttab = false
-opt.spelllang = { "en" }
+opt.spelllang = {"en"}
 opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true -- Put new windows right of current
@@ -46,6 +49,8 @@ opt.updatetime = 100 -- Save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.wrap = true -- Disable line wrap
+opt.spell = true -- Disable line wrap
+opt.spelllang = {"en_gb"} -- Disable line wrap
 opt.fillchars = {
     foldopen = "",
     foldclose = "",
@@ -53,7 +58,7 @@ opt.fillchars = {
     fold = " ",
     foldsep = " ",
     diff = "╱",
-    eob = " ",
+    eob = " "
 }
 
 vim.diagnostic.config({
@@ -62,9 +67,9 @@ vim.diagnostic.config({
             [vim.diagnostic.severity.ERROR] = "",
             [vim.diagnostic.severity.WARN] = "",
             [vim.diagnostic.severity.INFO] = "󰌶",
-            [vim.diagnostic.severity.HINT] = "",
-        },
-    },
+            [vim.diagnostic.severity.HINT] = ""
+        }
+    }
 })
 
 vim.g.neovide_scroll_animation_length = 0.08
@@ -74,4 +79,5 @@ vim.g.neovide_no_idle = true
 vim.g.neovide_cursor_animation_length = 0.06
 vim.g.neovide_cursor_trail_size = 0.4
 
-vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "ERROR", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpoint",
+                   {text = "", texthl = "ERROR", linehl = "", numhl = ""})

@@ -17,7 +17,7 @@ variables.servers = {
     bash = {name = "bashls"},
     css = {name = "cssls"},
     json = {name = "jsonls"},
-    markdown = {name = "prosemd_lsp"},
+    markdown = {name = "marksman"},
     toml = {name = "taplo"},
 }
 return variables

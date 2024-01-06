@@ -7,12 +7,6 @@ cmp.setup({
             require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
         end
     },
-
-    window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered()
-
-    },
     mapping = cmp.mapping.preset.insert({
         ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -50,14 +44,14 @@ cmp.setup({
     sources = cmp.config.sources({
         {name = "nvim_lsp"}, {name = "luasnip"}, -- For luasnip users.
         {name = "buffer"}, {name = "path"}, {name = "nvim_lsp_signature_help"},
-        {name = "copilot"}, {name = "cmp-dictionary"}
+        {name = "copilot"}, {name = "emoji"}, {name = 'nerdfont'}
     }),
     preselect = cmp.PreselectMode.Item,
     matching = {
-        disallow_fuzzy_matching = true,
-        disallow_fullfuzzy_matching = true,
-        disallow_partial_fuzzy_matching = true,
-        disallow_prefix_unmatching = true
+        disallow_fuzzy_matching = false,
+        disallow_fullfuzzy_matching = false,
+        disallow_partial_fuzzy_matching = false,
+        disallow_prefix_unmatching = false
     },
     experimental = {ghost_text = true}
 
@@ -68,6 +62,24 @@ cmp.setup.filetype("gitcommit", {
     sources = cmp.config.sources({
         {name = "git"} -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
     }, {{name = "buffer"}})
+})
+
+cmp.setup.filetype("markdown", {
+    sources = cmp.config.sources({
+        {name = "buffer"}, {name = "path"}, {name = "nvim_lsp"},
+        {name = "luasnip"}, {name = "buffer"}, {
+            name = "look",
+            keyword_length = 2,
+            optinon = {convert_case = true, loud = true}
+        }, {name = "dictionary", keyword_length = 2}, {
+            name = 'spell',
+            option = {
+                keep_all_entries = false,
+                enable_in_context = function() return true end
+            }
+        }, {name = 'emoji'}, {name = 'nerdfont'}
+
+    })
 })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
@@ -114,4 +126,3 @@ cmp.setup({
         })
     }
 })
-
