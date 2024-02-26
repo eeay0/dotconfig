@@ -15,22 +15,26 @@
 
 
 ### Output configuration
-    output * bg ~/Pictures/Wallpapers/binary.jpg fill
+
+    output * background /home/eeay/pics/Wallpapers/abstract-cubes-digital-art-uhdpaper.com-4K-4.2010.jpg fill
 
     output eDP-1 {
         resolution 1920x1080
         position 3840 0
+        adaptive_sync on
     }
 
 
     output HDMI-A-1 {
         resolution 1920x1080@100Hz
         position 1920 0
+        adaptive_sync on
     }
 
     output DP-1 {
-        resolution 1920x1080
+        resolution 1920x1080@75Hz
         position 0 0
+        adaptive_sync on
     }
 
 
@@ -96,8 +100,6 @@
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
     workspace 1 output HDMI-A-1
-    workspace 2 output DP-1
-    workspace 5 output eDP-1
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
     bindsym $mod+Shift+3 move container to workspace number 3
@@ -116,10 +118,9 @@
     bindsym $mod+ctrl+shift+$left_alt move workspace to left
     bindsym $mod+ctrl+shift+$right_alt move workspace to right
 
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    bindsym $mod+b border toggle normal pixel 1
+    bindsym $mod+Shift+b bar mode toggle
 
-    bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
 
@@ -128,16 +129,15 @@
     bindsym $mod+space focus mode_toggle
     bindsym $mod+a focus parent
 
-    bindsym XF86AudioRaiseVolume exec --no-startup-id volumectl up
-    bindsym XF86AudioLowerVolume exec --no-startup-id volumectl down
-    bindsym $mod+plus exec --no-startup-id volumectl up
-    bindsym $mod+minus exec --no-startup-id volumectl down
-    bindsym XF86AudioMute exec --no-startup-id volumectl toggle
+    bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% 
+    bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym $mod+equal exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym $mod+minus exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
     bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
     bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
     bindsym XF86AudioNext exec --no-startup-id playerctl next
     bindsym XF86AudioPrev exec --no-startup-id playerctl previous
-
     bindsym $mod+shift+s exec --no-startup-id spotify --enable-features=UseOzonePlatform --ozone-platform=wayland
 #
 # Resizing containers:
@@ -159,7 +159,6 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position bottom
-    mode hide
 
     tray_output HDMI-A-1
 
