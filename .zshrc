@@ -40,6 +40,8 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
+eval "$(zoxide init zsh)"
+
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -69,25 +71,27 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light z-shell/F-Sy-H
 zinit light hlissner/zsh-autopair
 
-eval "$(op completion zsh)"; compdef _op op
-
 ### ALIAS
-alias ls="exa "
+alias ls="exa --sort type "
+alias exa="exa --sort type "
+alias eza="eza --sort type "
 alias l="exa -lah --icons=always --smart-group"
 alias lt="exa --tree --icons"
 alias up="paru -Syyu"
 alias i="paru -S"
 alias r="paru -Rns"
 alias s="paru -Ss"
-alias mirror="sudo reflector --latest 75 --sort rate --fastest 6 --save /etc/pacman.d/mirrorlist --verbose"
+alias mirror="sudo reflector --latest 40 --sort rate --save /etc/pacman.d/mirrorlist --verbose"
 alias fm="ranger"
 alias v="nvim"
 alias ezsh="nvim ~/.zshrc"
-alias zshs="source ~/.zshrc"
-alias c="clear"
+alias szsh="source ~/.zshrc"
 alias run="./run.sh"
+alias mkdir="mkdir -p"
+alias ff="fastfetch"
 
-
+alias gc="git clone"
+alias web="firefox-developer-edition"
 
 export EDITOR="nvim"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
