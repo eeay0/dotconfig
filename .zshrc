@@ -93,6 +93,8 @@ alias ff="fastfetch"
 alias gc="git clone"
 alias web="firefox-developer-edition"
 
+alias mkdir="mkdir -p"
+
 export EDITOR="nvim"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
