@@ -17,7 +17,7 @@ if status is-interactive
     alias remove="paru -R"
     alias remover="paru -Rns"
     alias search="paru -Ss"
-    alias mirror="sudo reflector --latest 60 --sort rate --save /etc/pacman.d/mirrorlist --verbose"
+    alias mirror="sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist --verbose"
     alias fm="ranger"
     alias v="nvim"
     alias run="./run.sh"
