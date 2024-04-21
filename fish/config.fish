@@ -7,11 +7,10 @@ if status is-interactive
     set -x EDITOR nvim
     set -x PATH $PATH $HOME/.bin
 
-    alias ls="exa --sort type"
-    alias exa="exa --sort type"
+    alias ls="eza --sort type"
     alias eza="eza --sort type"
-    alias l="exa -lahg --icons=always --smart-group"
-    alias lt="exa --tree --icons"
+    alias l="eza -lahg --icons=always --smart-group"
+    alias lt="eza --tree --icons"
     alias update="paru -Syyu"
     alias install="paru -S"
     alias remove="paru -R"
