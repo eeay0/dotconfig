@@ -8,12 +8,15 @@ font pango:JetBrainsMono Nerd Font 8
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id setxkbmap -option "caps:escape"
-exec --no-startup-id xrandr --output HDMI-1 --primary --mode 1920x1080 --output eDP-1 --mode 1920x1080 --right-of HDMI-1 --output DP-1 --mode 1920x1080 --left-of HDMI-1
+exec --no-startup-id xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 60 --output eDP-1 --mode 1920x1080 --rate 60 --right-of HDMI-1 --output DP-1 --mode 1920x1080 --rate 60 --left-of HDMI-1
 exec --no-startup-id /home/eeay/.fehbg
 exec --no-startup-id nm-applet
 exec --no-startup-id picom
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id autotiling
 
+set $refresh_i3status killall -SIGUSR1 i3status
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% 
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -26,29 +29,40 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 floating_modifier $mod
-
 tiling_drag modifier titlebar
+
 bindsym $mod+Return exec kitty
-bindsym $mod+Shift+Return exec kitty --session ~/.config/kitty/session.conf
-
-bindsym $mod+Shift+q kill
-
 bindsym $mod+o exec --no-startup-id dmenu_run
+bindsym $mod+Shift+Return exec google-chrome-stable
 
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
+bindsym $mod+comma focus output left
+bindsym $mod+period focus output right
 
 
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+comma move output left
+bindsym $mod+Shift+period move output right
 
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q kill
+
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+b bar mode toggle
+
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -60,6 +74,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+# switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -71,6 +86,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
+# move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
@@ -82,30 +98,17 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-mode "resize" {
-    bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
+workspace 1 output HDMI-1
+workspace 2 output HDMI-1
+workspace 3 output HDMI-1
+workspace 9 output eDP-1
+workspace 8 output DP-1
 
 bar {
     status_command i3status
     mode hide
     tray_output primary
 }
+
 default_border pixel 1
 smart_borders on

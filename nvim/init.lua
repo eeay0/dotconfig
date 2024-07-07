@@ -18,5 +18,7 @@ plug_it("plugins.comment")
 plug_it("plugins.conform")
 plug_it("plugins.indent")
 plug_it("plugins.context")
+plug_it("plugins.mkdnflow")
+plug_it("plugins.oil")
 -----------
 require("plugins.lazynvim")

@@ -1,0 +1,8 @@
+[Unit]
+Description=Set Caps Lock to Escape
+
+[Service]
+ExecStart=/usr/bin/setxkbmap -option "caps:escape"
+
+[Install]
+WantedBy=default.target

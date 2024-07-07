@@ -27,6 +27,7 @@ return {
             end
         end
 
+        require 'lspconfig'.fish_lsp.setup {}
         -- Read https://neovim.io/doc/user/lsp.html to get more information.
         local opts = { noremap = true, silent = true }
         map("n", "gD", vim.lsp.buf.declaration, opts)
