@@ -1,6 +1,9 @@
 if status is-interactive
 
-    set fish_greeting
+    function fish_greeting
+        printf "Ctrl+Alt+F (F for file)\nCtrl+Alt+L (L for Log)\nCtrl+Alt+S (S for status)\nCtrl+R (R for reverse-i-search)\nCtrl+Alt+P (P for process)\nCtrl+V (V for variable)\n"
+    end
+
 
     zoxide init fish | source
 
@@ -16,15 +19,15 @@ if status is-interactive
     alias remove="paru -R"
     alias remover="paru -Rns"
     alias search="paru -Ss"
-    alias mirror="sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist --verbose"
+    alias mirror="sudo reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist --verbose -c TR,DE,FR,NL,SE,IT,PL,RU,CZ,GR"
     alias fm="ranger"
     alias v="nvim"
     alias run="./run.sh"
     alias mkdir="mkdir -p"
     alias ff="fastfetch"
     alias gc="git clone"
-    alias web="firefox-developer-edition"
     alias rm="rm -r"
+    alias mkdir="mkdir -p "
 
     alias run="./run.sh"
 
