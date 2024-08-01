@@ -4,6 +4,12 @@ if status is-interactive
         printf "Ctrl+Alt+F (F for file)\nCtrl+Alt+L (L for Log)\nCtrl+Alt+S (S for status)\nCtrl+R (R for reverse-i-search)\nCtrl+Alt+P (P for process)\nCtrl+V (V for variable)\n"
     end
 
+    function sssh
+        killall ssh-agent
+        eval (ssh-agent -c)
+        ssh-add ~/.ssh/git_remote
+    end
+
 
     zoxide init fish | source
 
@@ -28,8 +34,7 @@ if status is-interactive
     alias gc="git clone"
     alias rm="rm -r"
     alias mkdir="mkdir -p "
-
-    alias run="./run.sh"
+    alias zb="zig build "
 
 
 end
