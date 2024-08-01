@@ -53,11 +53,12 @@ return {
                     format = lspkind.cmp_format({
                         mode = "symbol_text",
                         menu = {
-                            buffer = "Buffer",
-                            nvim_lsp = "LSP",
-                            luasnip = "LuaSnip",
-                            nvim_lua = "Lua",
-                            latex_symbols = "Latex",
+                            buffer = "[Buffer]",
+                            nvim_lsp = "[LSP]",
+                            luasnip = "[LuaSnip]",
+                            nvim_lua = "[NvimLua]",
+                            latex_symbols = "[Latex]",
+                            dictionary = "[Dict]",
                         },
                     }),
                 },
@@ -145,16 +146,26 @@ return {
     },
     {
         "uga-rosa/cmp-dictionary",
-        ft = "markdown",
+        ft = { "markdown", "gitignore", "gitcommit" },
         config = function()
-            require("cmp").setup.filetype("markdown", {
+            local cmp = require("cmp")
+
+            cmp.setup({
+                formatting = {
+                    menu = {
+                        dictionary = "[Dict]",
+                    },
+                },
+            })
+
+            cmp.setup.filetype("markdown", {
                 sources = require("cmp").config.sources({
+                    { name = "path" },
                     { name = "buffer" },
                     {
                         name = "dictionary",
                         keyword_length = 2,
                     },
-                    { name = "spell" },
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
                     { name = "emoji" },

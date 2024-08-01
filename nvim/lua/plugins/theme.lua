@@ -72,13 +72,13 @@ return {
                 harpoon = true,
                 indent_blankline = {
                     enabled = true,
-                    scope_color = "", -- catppuccin color (eg. `lavender`) Default: text
+                    scope_color = "",
                     colored_indent_levels = true,
                 },
                 rainbow_delimiters = true,
                 telescope = {
                     enabled = true,
-                    style = "nvchad",
+                    -- style = "nvchad",
                 },
                 lsp_trouble = true,
                 illuminate = {

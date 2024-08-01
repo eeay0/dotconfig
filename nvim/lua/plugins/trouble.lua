@@ -1,8 +1,7 @@
 return {
     "folke/trouble.nvim",
     keys = {
-        { "<leader>tt", function() require("trouble").toggle("document_diagnostics") end },
-        { "<leader>tw", function() require("trouble").toggle("workspace_diagnostics") end },
+        { "<leader>tt", "<cmd> Trouble diagnostics toggle <cr>" },
         { "<leader>td", "<cmd> TodoTrouble <CR>" },
     },
     dependencies = { "nvim-tree/nvim-web-devicons" },

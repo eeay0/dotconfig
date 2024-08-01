@@ -16,10 +16,10 @@ map("n", "<A-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 map("n", "<A-f>", "<C-w><C-w>", { desc = "Next window or Float", remap = true })
 
 -- Resize windows
-map("n", "<A-K>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
-map("n", "<A-J>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
-map("n", "<A-H>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
-map("n", "<A-L>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+map("n", "<A-K>", "<cmd>resize +5<cr>", opts)
+map("n", "<A-J>", "<cmd>resize -5<cr>", opts)
+map("n", "<A-,>", "<cmd>vertical resize -5<cr>", opts)
+map("n", "<A-.>", "<cmd>vertical resize +5<cr>", opts)
 
 -- Windows
 map("n", "<A-w>", "<C-W>c", { desc = "Delete window", remap = true })

@@ -21,9 +21,9 @@ return {
             filetypes = { md = true, rmd = true, markdown = true },
             create_dirs = true,
             perspective = {
-                priority = "first",
+                priority = "root",
                 fallback = "current",
-                root_tell = false,
+                root_tell = "main.md",
                 nvim_wd_heel = false,
                 update = false,
             },
@@ -63,10 +63,10 @@ return {
                 template = "# {{ title }}",
             },
             to_do = {
-                symbols = { " ", "-", "X" },
+                symbols = { " ", "/", "X" },
                 update_parents = true,
                 not_started = " ",
-                in_progress = "-",
+                in_progress = "/",
                 complete = "X",
             },
             foldtext = {
@@ -164,7 +164,7 @@ return {
                 MkdnTableNewRowAbove = { "n", "<leader>iR" },
                 MkdnTableNewColAfter = { "n", "<leader>ic" },
                 MkdnTableNewColBefore = { "n", "<leader>iC" },
-                MkdnFoldSection = { "n", "<leader>f" },
+                MkdnFoldSection = { "n", "<leader>ff" },
                 MkdnUnfoldSection = { "n", "<leader>F" },
             },
         })

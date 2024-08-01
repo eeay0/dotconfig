@@ -20,5 +20,7 @@ plug_it("plugins.indent")
 plug_it("plugins.context")
 plug_it("plugins.mkdnflow")
 plug_it("plugins.oil")
+plug_it("plugins.zen")
+plug_it("plugins.nvim-lint")
 -----------
 require("plugins.lazynvim")

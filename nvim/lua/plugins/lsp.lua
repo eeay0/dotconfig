@@ -15,6 +15,9 @@ return {
         require("neodev").setup({ library = { plugins = { "nvim-dap-ui" }, types = true } })
         require("inc_rename").setup({})
 
+        require("lspconfig").bashls.setup({})
+        require("lspconfig").zls.setup({})
+
         for _, opts in pairs(variables.Ft_Opts) do
             if opts.lsp then
                 if opts.lsp.conf then
@@ -27,10 +30,11 @@ return {
             end
         end
 
-        require 'lspconfig'.fish_lsp.setup {}
+        require("lspconfig").fish_lsp.setup({})
         -- Read https://neovim.io/doc/user/lsp.html to get more information.
         local opts = { noremap = true, silent = true }
         map("n", "gD", vim.lsp.buf.declaration, opts)
+        map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
         map("n", "gd", vim.lsp.buf.definition, opts)
         map("n", "K", vim.lsp.buf.hover, opts)
         map("n", "gi", vim.lsp.buf.implementation, opts)

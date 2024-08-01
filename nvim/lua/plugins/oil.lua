@@ -123,6 +123,6 @@ return {
                 border = "rounded",
             },
         })
-        vim.keymap.set("n", "<leader>fm", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+        vim.keymap.set("n", "<leader>fe", "<CMD>Oil<CR>", { desc = "Open parent directory" })
     end,
 }

@@ -13,10 +13,13 @@ return {
         formatters_by_ft = {
             lua = { "stylua" },
             fish = { "fish_indent" },
+            python = { "autopep8" },
+            shell = { "beautysh" },
+            sh = { "beautysh" },
+            zsh = { "beautysh" },
+            markdown = { "prettierd", "cbfmt" },
         },
-        -- Set up format-on-save
-        format_on_save = { timeout_ms = 100, lsp_fallback = true },
-        -- Customize formatters
+
         formatters = {
             shfmt = {
                 prepend_args = { "-i", "2" },
